@@ -10,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "../../assets/components/ui/table";
+import Header from "./header";
 
 function TherapistsList() {
   const [loading, setLoading] = useState(true);
@@ -29,31 +30,36 @@ function TherapistsList() {
     return <h1>Loading...</h1>;
   } else {
     return (
-      <Table className="w-[50%] mx-auto">
-        <TableCaption>A list of your therapists in your area.</TableCaption>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">Name</TableHead>
-            <TableHead className="w-[100px]">Address</TableHead>
-            <TableHead className="w-[100px]">Location</TableHead>
-            <TableHead className="w-[100px]">Insurance</TableHead>
-            <TableHead className="w-[100px]">Remote</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {loadedTherapists.map((therapist, index) => (
-            <TableRow key={index}>
-              <TableCell className="w-[100px]">{therapist.name}</TableCell>
-              <TableCell className="w-[100px]">{therapist.address}</TableCell>
-              <TableCell className="w-[100px]">{therapist.city}</TableCell>
-              <TableCell className="w-[100px]">{therapist.insurance}</TableCell>
-              <TableCell className="w-[100px]">
-                {therapist.remote ? "Yes" : "No"}
-              </TableCell>
+      <>
+        <Header />
+        <Table className="w-[50%] mx-auto">
+          <TableCaption>A list of your therapists in your area.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px]">Name</TableHead>
+              <TableHead className="w-[100px]">Address</TableHead>
+              <TableHead className="w-[100px]">Location</TableHead>
+              <TableHead className="w-[100px]">Insurance</TableHead>
+              <TableHead className="w-[100px]">Remote</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {loadedTherapists.map((therapist, index) => (
+              <TableRow key={index}>
+                <TableCell className="w-[100px]">{therapist.name}</TableCell>
+                <TableCell className="w-[100px]">{therapist.address}</TableCell>
+                <TableCell className="w-[100px]">{therapist.city}</TableCell>
+                <TableCell className="w-[100px]">
+                  {therapist.insurance}
+                </TableCell>
+                <TableCell className="w-[100px]">
+                  {therapist.remote ? "Yes" : "No"}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </>
     );
   }
 }
