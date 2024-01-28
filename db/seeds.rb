@@ -8,12 +8,12 @@ insurances = ["Kaiser", "BCBS", "United Health", "Aetna", "Ambetta", "Cigna", "O
 # Using the faker gem, create 10 therapists 
 # 
 
-  20.times do
+  30.times do
     Therapist.create(
       name: Faker::Name.name,
       address: Faker::Address.street_address,
-      city: cities[rand(4)],
-      insurance: insurances[rand(9)],
+      city: cities[rand(5)],
+      insurance: insurances[rand(10)],
       remote: Faker::Boolean.boolean(true_ratio: 0.3),
   )
   end
