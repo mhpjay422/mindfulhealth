@@ -73,3 +73,5 @@ end
 gem "jsbundling-rails"
 
 gem "cssbundling-rails"
+
+gem 'faker'
