@@ -7,7 +7,7 @@ import {
 
 export default function Header() {
   return (
-    <div className="flex justify-between h-36 bg-gray-50 text-black relative shadow-sm font-mono px-10 mb-32">
+    <div className="flex justify-between h-36 bg-gray-50 text-black relative shadow-sm font-mono px-10 mb-6">
       <div className="flex flex-col text-sm">
         <svg width="60" height="100" viewBox="0 0 100 100">
           <polygon
