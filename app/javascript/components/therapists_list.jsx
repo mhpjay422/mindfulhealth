@@ -32,33 +32,36 @@ function TherapistsList() {
     return (
       <>
         <Header />
-        <Table className="w-[50%] mx-auto">
-          <TableCaption>A list of your therapists in your area.</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">Name</TableHead>
-              <TableHead className="w-[100px]">Address</TableHead>
-              <TableHead className="w-[100px]">Location</TableHead>
-              <TableHead className="w-[100px]">Insurance</TableHead>
-              <TableHead className="w-[100px]">Remote</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {loadedTherapists.map((therapist, index) => (
-              <TableRow key={index}>
-                <TableCell className="w-[100px]">{therapist.name}</TableCell>
-                <TableCell className="w-[100px]">{therapist.address}</TableCell>
-                <TableCell className="w-[100px]">{therapist.city}</TableCell>
-                <TableCell className="w-[100px]">
-                  {therapist.insurance}
-                </TableCell>
-                <TableCell className="w-[100px]">
-                  {therapist.remote ? "Yes" : "No"}
-                </TableCell>
+        <div className="w-[50%] h-[60vh] relative overflow-auto mx-auto rounded">
+          <Table>
+            <TableHeader className="sticky inset-0 bg-gray-50/100">
+              <TableRow>
+                <TableHead className="w-[100px]">Name</TableHead>
+                <TableHead className="w-[100px]">Address</TableHead>
+                <TableHead className="w-[100px]">Location</TableHead>
+                <TableHead className="w-[100px]">Insurance</TableHead>
+                <TableHead className="w-[100px]">Remote</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {loadedTherapists.map((therapist, index) => (
+                <TableRow key={index}>
+                  <TableCell className="w-[100px]">{therapist.name}</TableCell>
+                  <TableCell className="w-[100px]">
+                    {therapist.address}
+                  </TableCell>
+                  <TableCell className="w-[100px]">{therapist.city}</TableCell>
+                  <TableCell className="w-[100px]">
+                    {therapist.insurance}
+                  </TableCell>
+                  <TableCell className="w-[100px]">
+                    {therapist.remote ? "Yes" : "No"}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </>
     );
   }
