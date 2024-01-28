@@ -1,9 +1,19 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require 'faker'
+
+Therapist.delete_all
+
+cities = ["Brooklyn", "Queens", "Bronx", "Manhattan", "Staten Island"]
+insurances = ["Kaiser", "BCBS", "United Health", "Aetna", "Ambetta", "Cigna", "Oscar", "Anthem", "HCSC", "Centene"]
+
+# Using the faker gem, create 10 therapists 
+# 
+
+  20.times do
+    Therapist.create(
+      name: Faker::Name.name,
+      address: Faker::Address.street_address,
+      city: cities[rand(4)],
+      insurance: insurances[rand(9)],
+      remote: Faker::Boolean.boolean(true_ratio: 0.3),
+  )
+  end
