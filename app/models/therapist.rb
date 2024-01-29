@@ -12,5 +12,16 @@
 #  updated_at :datetime         not null
 #
 class Therapist < ApplicationRecord 
-  
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :city, presence: true, format: { with: /\A[a-zA-Z\s]+\z/, message: "only allows letters" }
+  validates :remote, inclusion: { in: [true, false] }
+  validate :custom_method_for_validation
+
+private
+
+  def custom_method_for_validation
+    # So true
+    true == true
+  end
 end
