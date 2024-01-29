@@ -1,24 +1,90 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## MindfulHealth - New Developer Setup
 
-Things you may want to cover:
+### Get the code
 
-* Ruby version
+```md
+git clone https://github.com/mhpjay422/mindfulhealth
+cd mindfulhealth
+```
 
-* System dependencies
+### Install appropriate version of ruby
 
-* Configuration
+Using either `rvm` or `rbenv`:
 
-* Database creation
+```md
+rbenv install 3.2.2
+rvm install 3.2.2
+```
 
-* Database initialization
+### Install gems and such
 
-* How to run the test suite
+Install ruby libraries:
 
-* Services (job queues, cache servers, search engines, etc.)
+```md
+bundle install
+```
 
-* Deployment instructions
+Install javascript libraries via yarn:
 
-* ...
+```md
+npm install --global yarn
+```
+
+You _might_ need to `sudo` it:
+
+```md
+sudo npm install --global yarn
+```
+
+Then run:
+
+```md
+yarn install
+```
+
+### Set up databases
+
+```md
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+### ensure you have pre-reqs
+
+To install [postgres](https://www.postgresql.org/):
+
+```md
+brew install postgresql
+```
+
+### Ensure all is running well
+
+Run the tests:
+
+```md
+rspec spec
+```
+
+Install the `foreman` gem and use it:
+
+```md
+gem install foreman
+bin/dev
+```
+
+The above will run the Procfile and:
+
+- Boot the app locally
+- Compile javascript
+- Build CSS with tailwind
+
+## Explore the app a bit
+
+- The app will load a list of therapists.
+- Use the filter dropdowns to select options (e.g., location, insurance, remote).
+- Click the filter button to apply filters and update the therapist list.
+
+This setup guide should get you up and running with the MindfulHealth project. Happy coding!
