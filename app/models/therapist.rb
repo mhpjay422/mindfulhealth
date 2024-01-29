@@ -16,12 +16,11 @@ class Therapist < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true, format: { with: /\A[a-zA-Z\s]+\z/, message: "only allows letters" }
   validates :remote, inclusion: { in: [true, false] }
-  validate :custom_method_for_validation
+  validate  :custom_city_validation
 
-private
+  private
 
-  def custom_method_for_validation
-    # So true
-    true == true
+  def custom_city_validation
+    errors.add(:city, "cannot be Midgar") if city == "Midgar"
   end
 end

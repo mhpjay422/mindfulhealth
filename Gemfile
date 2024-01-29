@@ -68,6 +68,8 @@ group :test do
   gem "selenium-webdriver"
   gem 'mocha'
   gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 gem "jsbundling-rails"
