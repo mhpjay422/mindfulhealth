@@ -13,18 +13,18 @@ import {
 import Header from "./header";
 import FilterDropdowns from "./filter-dropdowns";
 
-const allCities = ["Brooklyn", "Queens", "Bronx", "Manhattan", "Staten Island"];
+const allCities = ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"];
 const allInsurances = [
-  "Kaiser",
-  "BCBS",
-  "United Health",
   "Aetna",
   "Ambetta",
-  "Cigna",
-  "Oscar",
   "Anthem",
-  "HCSC",
+  "BCBS",
   "Centene",
+  "Cigna",
+  "HCSC",
+  "Kaiser",
+  "Oscar",
+  "United Health",
 ];
 const allRemoteOptions = ["Yes", "No"];
 
@@ -43,16 +43,6 @@ function TherapistsList() {
         setLoading(false);
       });
   }, []);
-
-  const filterTherapist = (filter, property, therapists) => {
-    if (filter !== "all") {
-      therapists = therapists.filter(
-        (therapist) => therapist[property] === filter
-      );
-    }
-
-    return therapists;
-  };
 
   const invokeFiltering = (filters) => {
     const [locationFilter, insuranceFilter, remoteFilter] = filters;
