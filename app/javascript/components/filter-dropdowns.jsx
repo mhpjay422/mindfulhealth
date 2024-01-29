@@ -8,7 +8,7 @@ import {
 } from "../../assets/components/ui/select";
 
 export default function FilterDropdowns({
-  invokeFilterChange,
+  invokeFiltering,
   allCities,
   allInsurances,
 }) {
@@ -16,7 +16,7 @@ export default function FilterDropdowns({
   const [filterInsurance, setFilterInsurance] = useState("all");
   const [filterRemote, setFilterRemote] = useState("all");
   const handleFilterSubmit = () => {
-    invokeFilterChange([filterLocation, filterInsurance, filterRemote]);
+    invokeFiltering([filterLocation, filterInsurance, filterRemote]);
   };
   return (
     <div className="flex justify-around items-center bg-gray-50 rounded-lg border border-gray-100 h-24 w-[50%] mb-6 mx-auto">

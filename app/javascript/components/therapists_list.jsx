@@ -54,18 +54,20 @@ function TherapistsList() {
     return therapists;
   };
 
-  const invokeFilterChange = (filters) => {
-    let locationFilter = filters[0];
-    let filteredInsurance = filters[1];
-    let filteredRemote = filters[2];
+  const invokeFiltering = (filters) => {
+    const [locationFilter, insuranceFilter, remoteFilter] = filters;
 
-    let therapists = loadedTherapists;
+    const isMatch = (therapist) => {
+      return (
+        (locationFilter === "all" || therapist.city === locationFilter) &&
+        (insuranceFilter === "all" ||
+          therapist.insurance === insuranceFilter) &&
+        (remoteFilter === "all" || therapist.remote === remoteFilter)
+      );
+    };
 
-    therapists = filterTherapist(locationFilter, "city", therapists);
-    therapists = filterTherapist(filteredInsurance, "insurance", therapists);
-    therapists = filterTherapist(filteredRemote, "remote", therapists);
-
-    setfilteredTherapists(therapists);
+    const filteredTherapists = loadedTherapists.filter(isMatch);
+    setfilteredTherapists(filteredTherapists);
   };
 
   if (loading) {
@@ -75,7 +77,7 @@ function TherapistsList() {
       <>
         <Header />
         <FilterDropdowns
-          invokeFilterChange={invokeFilterChange}
+          invokeFiltering={invokeFiltering}
           allCities={allCities}
           allInsurances={allInsurances}
         />
