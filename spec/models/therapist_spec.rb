@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: therapists
+#
+#  id         :uuid             not null, primary key
+#  address    :string           not null
+#  city       :string           not null
+#  insurance  :string
+#  name       :string           not null
+#  remote     :boolean          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe Therapist, type: :model do
